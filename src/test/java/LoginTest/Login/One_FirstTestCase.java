@@ -15,7 +15,7 @@ public class One_FirstTestCase {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\AKDNdHRC\\Selenium\\chromedriver-win64\\chromedriver.exe");
 
-		// 2. Cr eate Chrome Web Browser Object
+		// 2. Create Chrome Web Browser Object
 		WebDriver driver = new ChromeDriver();
 
 		// Browser Open in Maximise Window
