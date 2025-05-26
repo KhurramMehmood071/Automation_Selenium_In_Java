@@ -30,7 +30,7 @@ public class Two_Simple_Locators {
 		// Locate Username By tagname [<input></input>]
 		// driver.findElement(By.tagName("input")).sendKeys("standard_user");
 
-		// Locate Password by name [name="password"]
+		// Locate Password by Name [name="password"]
 		driver.findElement(By.name("password")).sendKeys("secret_sauce");
 
 		// Locate Login Button by Class [class="btn_action"]
