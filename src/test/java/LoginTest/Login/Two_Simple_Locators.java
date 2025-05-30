@@ -14,7 +14,7 @@ public class Two_Simple_Locators {
 
 		// Launch Chrome Browser
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\AKDNdHRC\\Selenium\\chromedriver-win64\\chromedriver.exe");
+				"C:\\\\Users\\\\AKDNdHRC\\\\Selenium\\\\Training Sessions\\\\Session 01\\\\MavenLoginTest\\\\Login\\\\chromedriver\\\\chromedriver.exe");
 
 		WebDriver driver = new ChromeDriver();
 
