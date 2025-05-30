@@ -46,6 +46,8 @@ public class Testing_App {
 			// Browser Open in Maximise Window
 			driver.manage().window().maximize();
 
+			// **********************Shadow Host*****************
+
 			// Step 1: Locate the shadow host
 			WebElement shadowHost = driver.findElement(By.cssSelector("#usercentrics-cmp-ui")); // Adjust selector
 
@@ -57,124 +59,208 @@ public class Testing_App {
 
 			// Step 4: Interact with the button
 			button.click();
-			System.out.println("Button clicked successfully!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		// Locate the dropdown control (the container for the input and arrow)
-		WebElement dropdownControl = wait
+		// ********First Dropdown Selection Industry***********
+
+		String First_Dropdown_Option = "Mining"; // Example value, can be changed as needed
+
+		// Locate the dropdown
+		WebElement dropdownInput = wait
 				.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".css-y7zb47-control")));
 
-		// Click the dropdown to open it
-		dropdownControl.click();
-		
-		Thread.sleep(1000); // Wait for the dropdown to open
+		// Step 2: Click the input field to open the dropdown
+		dropdownInput.click();
 
-		// Locate the input field by its ID
-		WebElement dropdownInput = driver.findElement(
-				By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[1]/div/div/div/div[2]/div[2]/input"));
+		// Discount selection based on Patient_Discount value
+		switch (First_Dropdown_Option.toLowerCase()) {
+		case "construction":
+			WebElement constructionOption = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[1]/div/div[2]/div/div[1]/div")));
+			constructionOption.click();
+			break;
 
-		// Clear any existing text in the input (optional, in case it's not cleared)
-		dropdownInput.clear();
+		case "mining":
+			WebElement mining = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[1]/div/div[2]/div/div[2]/div")));
+			mining.click();
+			break;
 
-		// Type "Mining" into the input field
-		dropdownInput.sendKeys("Mining");
+		case "qarry & aggregate":
+			WebElement qarry = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[1]/div/div[2]/div/div[3]/div")));
+			qarry.click();
+			break;
 
-		// Alternatively, if pressing Enter works for selection:
-		dropdownInput.sendKeys(Keys.ENTER);
+		case "cranes":
+			WebElement cranes = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[1]/div/div[2]/div/div[4]/div")));
+			cranes.click();
+			break;
+
+		case "farming & agriculture":
+			WebElement farming = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[1]/div/div[2]/div/div[5]/div")));
+			farming.click();
+			break;
+
+		default:
+			System.out.println("Invalid option specified: " + First_Dropdown_Option);
+			break;
+		}
 
 		Thread.sleep(1000);
 
-		// Locate the dropdown control (the container for the input and arrow)
-		WebElement dropdownControl1 = wait.until(ExpectedConditions
+		// ********Second Dropdown Selection Sub Category***********
+
+		String Second_Dropdown_Option = "Wheel Loaders"; // Example value, can be changed as needed
+
+		// Locate the dropdown
+		WebElement dropdownInput2 = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[2]/div")));
 
-		// Click the dropdown to open it
-		dropdownControl1.click();
+		// Dropdown Click
+		dropdownInput2.click();
+
+		// Discount selection based on Patient_Discount value
+		switch (Second_Dropdown_Option.toLowerCase()) {
+		case "hydraulic excavators":
+			WebElement hydraulicOption = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[2]/div/div[2]/div/div[1]/div")));
+			hydraulicOption.click();
+			break;
+
+		case "loaders":
+			WebElement loaders = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[2]/div/div[2]/div/div[2]/div")));
+			loaders.click();
+			break;
+
+		case "mining shovels":
+			WebElement shovels = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[2]/div/div[2]/div/div[3]/div")));
+			shovels.click();
+			break;
+
+		case "wheel loaders":
+			WebElement wheel = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[2]/div/div[2]/div/div[4]/div")));
+			wheel.click();
+			break;
+
+		default:
+			System.out.println("Invalid option specified: " + Second_Dropdown_Option);
+			break;
+		}
 		
-		Thread.sleep(1000); // Wait for the dropdown to open
-
-
-		// Locate the input field by its ID
-		WebElement dropdownInput1 = driver.findElement(
-				By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[2]/div/div/div/div[2]/div[2]/input"));
-
-		// Clear any existing text in the input (optional, in case it's not cleared)
-		dropdownInput1.clear();
-
-		// Type "Mining" into the input field
-		dropdownInput1.sendKeys("Loader");
-
-		// Alternatively, if pressing Enter works for selection:
-		dropdownInput1.sendKeys(Keys.ENTER);
-
 		Thread.sleep(1000);
 
-		// Locate the dropdown control (the container for the input and arrow)
-		WebElement dropdownControl2 = wait.until(ExpectedConditions
+		// ********Third Dropdown Selection Sub Manufacturer***********
+
+		String Third_Dropdown_Option = "Leibherr"; // Example value, can be changed as needed
+
+		// Locate the dropdown
+		WebElement dropdownInput3 = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[3]/div/div")));
 
-		// Click the dropdown to open it
-		dropdownControl2.click();
+		// Dropdown Click
+		dropdownInput3.click();
+
+		// Discount selection based on Patient_Discount value
+		switch (Third_Dropdown_Option.toLowerCase()) {
+		case "leibherr":
+			WebElement hydraulicOption = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[3]/div/div[2]/div/div/div")));
+			hydraulicOption.click();
+			break;
+
+		default:
+			System.out.println("Invalid option specified: " + Third_Dropdown_Option);
+			break;
+		}
+
+		Thread.sleep(1000);
 		
-		Thread.sleep(1000); // Wait for the dropdown to open
-
-
-		// Locate the input field by its ID
-		WebElement dropdownInput2 = driver.findElement(
-				By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/div[3]/div/div/div/div[2]/div[2]/input"));
-
-		// Clear any existing text in the input (optional, in case it's not cleared)
-		dropdownInput2.clear();
-
-		// Type "Mining" into the input field
-		dropdownInput2.sendKeys("liebherr");
-
-		// Alternatively, if pressing Enter works for selection:
-		dropdownInput2.sendKeys(Keys.ENTER);
+		// ********Locate Search Button***********
 
 		driver.findElement(By.xpath("/html/body/div[1]/main/div[1]/div/div/div[3]/button")).click();
+		
+		// *********Click ON Liebherr L 538***********
 
-
-		WebElement Link1 = null;
+		WebElement L538 = null;
 		try {
-			Link1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
+			L538 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
 					"/html/body/div[1]/main/div/div/div[2]/div[2]/div[3]/div[1]/div[4]/div/div[2]/div[1]/div[1]/div/a")));
 		} catch (Exception e) {
 			System.out.println("ID not found, trying CSS selector...");
-			Link1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".css-1q1fnlq input")));
+			L538 = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".css-1q1fnlq input")));
 		}
+		
+		Thread.sleep(1000);
 
 		// Step 1: Scroll to the dropdown input to ensure it's in the viewport
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", Link1);
+		js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", L538);
+		Thread.sleep(2000); // Pause for 2 seconds after scrolling
 
 		// Step 2: Wait for the element to be clickable
-		wait.until(ExpectedConditions.elementToBeClickable(Link1));
+		wait.until(ExpectedConditions.elementToBeClickable(L538));
 
 		// Step 3: Click the dropdown (use JavaScript click as fallback)
 		try {
-			Link1.click();
+			L538.click();
 		} catch (Exception e) {
 			System.out.println("Standard click failed, trying JavaScript click...");
-			js.executeScript("arguments[0].click();", Link1);
+			js.executeScript("arguments[0].click();", L538);
 		}
 		
-		// Step 1: Scroll to the bottom of the page
-     //   JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		Thread.sleep(10000);
+		
+		// *********Slow Scroll to Bottom of Page***********
+	
+		js.executeScript(
+		    "function scrollToBottomSlowly() {" +
+		    "  let currentPosition = window.scrollY;" +
+		    "  const targetPosition = document.body.scrollHeight - window.innerHeight;" +
+		    "  const step = 50;" + // Pixels per step (adjust for speed)
+		    "  const delay = 10;" + // Delay in ms (adjust for speed)
+		    "  function scrollStep() {" +
+		    "    if (currentPosition < targetPosition) {" +
+		    "      currentPosition += step;" +
+		    "      window.scrollTo(0, currentPosition);" +
+		    "      if (currentPosition < targetPosition) {" +
+		    "        setTimeout(scrollStep, delay);" +
+		    "      }" +
+		    "    }" +
+		    "  }" +
+		    "  scrollStep();" +
+		    "}" +
+		    "scrollToBottomSlowly();"
+		);
 
-        // Step 2: Wait for the page to settle after scrolling
-        Thread.sleep(1000); // Optional: Replace with explicit wait if needed
-        
-        driver.findElement(By.xpath("/html/body/div[1]/footer/div/div/div[2]/div/div[3]/a[4]")).click();
-        
-        Thread.sleep(1000); // Wait for the dropdown to open
+		// Wait for scrolling to complete (approximate time based on page height and scroll speed)
+		Thread.sleep(3000); // Adjust based on page height or use dynamic wait if needed
 
-        
-        driver.quit();
+		// *********Click on Contact Us***********
+		// Locate the "Contact Us" link
+		WebElement contactUsLink = wait.until(ExpectedConditions.elementToBeClickable(
+		    By.xpath("/html/body/div[1]/footer/div/div/div[2]/div/div[3]/a[4]")
+		));
 
+		// Click the "Contact Us" link (use JavaScript click as fallback)
+		try {
+		    contactUsLink.click();
+		} catch (Exception e) {
+		    System.out.println("Standard click failed, trying JavaScript click...");
+		    js.executeScript("arguments[0].click();", contactUsLink);
+		}
+
+		// Wait briefly for navigation to complete (optional, adjust as needed)
+		Thread.sleep(1000);
+
+		// Close the browser
+		driver.quit();
 	}
-
 }
