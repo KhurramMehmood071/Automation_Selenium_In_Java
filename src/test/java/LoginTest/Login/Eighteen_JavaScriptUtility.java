@@ -8,7 +8,7 @@ public class Eighteen_JavaScriptUtility {
 
 	public static void drawBorder(WebElement element, WebDriver driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].style.border='3px solid red'", element);
+		js.executeScript("arguments[0].style.border='8px solid Green'", element);
 
 	}
 
