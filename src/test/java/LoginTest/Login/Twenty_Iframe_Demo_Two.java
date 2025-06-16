@@ -18,29 +18,38 @@ public class Twenty_Iframe_Demo_Two {
 		// maximise browser
 		driver.manage().window().maximize();
 		// open url
-		driver.get("https://www.selenium.dev/selenium/docs/api/java/index.html?overview-summary.html");
+		driver.get("https://demo.automationtesting.in/Frames.html");
 
-		// switch to 1st frame
-		WebElement iframeElement = driver.findElement(By.name("packageListFrame"));
-		driver.switchTo().frame(iframeElement);
+		// Switch to Second Button Tab
+		driver.findElement(By.xpath("/html/body/section/div[1]/div/div/div/div[1]/div/ul/li[2]/a")).click();
 
-		// find web element
-		driver.findElement(By.linkText("org.openqa.selenium")).click();
+		// switch to 1st frame (Parent Frame)
+		WebElement iframeElementOne = driver
+				.findElement(By.xpath("/html/body/section/div[1]/div/div/div/div[2]/div[2]/iframe"));
+		driver.switchTo().frame(iframeElementOne);
 
-		// switch to main page
-		driver.switchTo().defaultContent();// main page
+		// switch to 2nd frame (Child Frame)
+		WebElement iframeElementTwo = driver
+				.findElement(By.xpath("/html/body/section/div/div/iframe"));
+		driver.switchTo().frame(iframeElementTwo);
 
-		// swith to 2nd frame
-		driver.switchTo().frame(1);
-		// find web element "Alert" Link text of 2nd frame
-		driver.findElement(By.linkText("Alert")).click();
-
-		// switch to main page
-		driver.switchTo().defaultContent();// main page
-
-		// find & print total iframes on web page
-		int noOfiframes = driver.findElements(By.tagName("iframe")).size();
-		System.out.println("no. of iframes:" + noOfiframes);
+//		// find web element
+		driver.findElement(By.xpath("/html/body/section/div/div/div/input")).sendKeys("Welcome to Frame");
+//
+//		// switch to main page
+//		driver.switchTo().defaultContent();// main page
+//
+//		// swith to 2nd frame
+//		driver.switchTo().frame(1);
+//		// find web element "Alert" Link text of 2nd frame
+//		driver.findElement(By.linkText("Alert")).click();
+//
+//		// switch to main page
+//		driver.switchTo().defaultContent();// main page
+//
+//		// find & print total iframes on web page
+//		int noOfiframes = driver.findElements(By.tagName("iframe")).size();
+//		System.out.println("no. of iframes:" + noOfiframes);
 
 	}
 
