@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 
 public class Twenty_Three_FileUploadAutoIT {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 
 		// Launch chrome browser
@@ -30,17 +30,19 @@ public class Twenty_Three_FileUploadAutoIT {
 		Actions act = new Actions(driver);
 		act.moveToElement(button).click().perform();
 
-		
-			try {
-				Runtime.getRuntime().exec(
-						"C://Users//AKDNdHRC//Selenium//Training Sessions//Session 01//MavenLoginTest//AutoIT//AutoIT_FileUpload.exe"
-								+ " " + "C:\\Users\\AKDNdHRC\\Downloads\\Exp_Letter.docx");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		//
+		try {
+			Runtime.getRuntime().exec(
+					"C://Users//AKDNdHRC//Selenium//Training Sessions//Session 01//MavenLoginTest//AutoIT//AutoIT_FileUpload.exe"
+							+ " " + "C:\\Users\\AKDNdHRC\\Downloads\\Exp_Letter.docx");
+		} catch (IOException e) {
+
+			e.printStackTrace();
 		}
 
+		Thread.sleep(3000); // wait for 2 seconds
+
+		driver.findElement(By.xpath("/html/body/div/div/div[1]/div/button")).click();
 	}
 
-
+}
